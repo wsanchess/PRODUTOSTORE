@@ -1,0 +1,54 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form class="form-group">
+    <div class="form-group">
+        <label for="nomeProduto">Nome</label>
+        <input type="text" class="form-control" id="nomeProduto" placeholder="Nome do Produto">
+    </div>
+    <div class="form-group">
+        <label for="descricaoProduto">Descrição</label>
+        <input type="text" class="form-control" id="descricaoProduto" placeholder="Descrição">
+    </div>
+
+    <!-- TODO: Carregar categorias-->
+
+    <!--<select class="form-select" aria-label="Default select example">
+        <option selected>Categoria de Produto</option>
+
+    </select>-->
+
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center" scope="col">Id</th>
+            <th class="text-center" scope="col">Nome</th>
+            <th class="text-center" scope="col">Descrição</th>
+            <th class="text-center" scope="col">Categoria de Produto</th>
+            <th class="text-center" scope="col">Ativo</th>
+            <th class="text-center" scope="col">Perecivel</th>
+            <th class="text-center" scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{foreach (var produto in Model){
+                <tr>
+                    <td class="text-center">@produto.Id</td>
+                    <td class="text-center">@produto.Nome</td>
+                    <td class="text-center">@produto.Descricao</td>
+                    <td class="text-center">@produto.CategoriaProduto.Nome</td>
+                    <td class="text-center">@produto.Ativo</td>
+                    <td class="text-center">@produto.Perecivel</td>
+                    <td class="text-center">
+                        <button class="btn btn-success">Atualizar</button>
+                        <button class="btn btn-danger">Deletar</button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
